@@ -66,7 +66,7 @@
             <div class="card-info">
               <h5 class="flat-name"><%= flat.name %></h5>
               <p class="flat-location"><%= flat.location %></p>
-              <p class="flat-price"><strong>Price:</strong> <%= flat.price_per_night %></p>
+              <p class="flat-price"><strong>Price:</strong> £<%= flat.price_per_night %></p>
               <div class="flat-actions">
                 <%= link_to "More info", flat_path(flat), class: "btn btn-primary btn-sm" %>
                 <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-warning btn-sm" %>

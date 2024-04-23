@@ -145,9 +145,12 @@ header.top {
   cursor: pointer;
 }
 .button::before {
-  content: "🔍";
+  content: "\f002";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   font-size: 0.5em;
   transition: all 0.25s;
+  color: rgb(255, 255, 255);
 }
 .top .button {
   width: 3.5em;
