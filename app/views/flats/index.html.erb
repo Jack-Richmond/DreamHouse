@@ -1,49 +1,86 @@
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-12">
-      <h1><strong>All Available Flats</strong></h1>
+<div class="container mt-3">
+  <div class="header">
+    <div class="icon-row">
+      <div class="icon">
+        <i class="fas fa-home"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-umbrella-beach"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-mountain"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-hiking"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-seedling"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-water"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-sun"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-snowflake"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-wind"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-tree"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-ship"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-biking"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-stairs"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-skiing"></i>
+      </div>
+      <div class="icon">
+        <i class="fas fa-campground"></i>
+      </div>
     </div>
   </div>
 
-<div class="row">
-    <div class="col">
-      <% if @query %>
-        <p>You searched for <strong><%= @query %></strong>. We found <%= @flats.count %> flats out of our <%= Flat.count %> on our website.</p>
-      <% else %>
-        <p>Flats Available: <%= Flat.count %></p>
-      <% end %>
-    </div>
-  </div>
 
-<div class="row">
-    <% @flats.each do |flat| %>
-      <div class="col-md-4">
-        <div class="flat-card">
-          <div class="flat-card-content">
-            <div class="flat-card-title">
-              <h4><%= flat.name %></h4>
+
+  <div class="flat-container">
+    <% @flats.each_slice(5) do |slice| %>
+      <div class="flat-row">
+        <% slice.each do |flat| %>
+          <div class="flat-card">
+            <div class="card-img">
+              <% if flat.picture_url.present? %>
+                <%= image_tag flat.picture_url, class: "flat-image", alt: "Flat Image" %>
+              <% else %>
+                <div class="placeholder-image"></div>
+              <% end %>
             </div>
-            <p><%= flat.address %></p>
-            <div class="flex">
-              <div class="flex align-items-center">
-                <i class="fa-solid fa-people-line"></i>
-                <span><%= flat.number_of_guests %></span>
-              </div>
-              <div class="flex align-items-center ms-3">
-                <i class="fa-solid fa-euro-sign"></i>
-                <span><%= flat.price_per_night %></span>
+            <div class="card-info">
+              <h5 class="flat-name"><%= flat.name %></h5>
+              <p class="flat-location"><%= flat.location %></p>
+              <p class="flat-price"><strong>Price:</strong> <%= flat.price_per_night %></p>
+              <div class="flat-actions">
+                <%= link_to "More info", flat_path(flat), class: "btn btn-primary btn-sm" %>
+                <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-warning btn-sm" %>
+                <%= link_to "Remove", flat_path(flat),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: "btn btn-danger btn-sm",
+                    "data-turbo-method": :delete,
+                    "data-turbo-confirm": "Are you sure?"
+                %>
               </div>
             </div>
           </div>
-          <div class="flat-card-actions">
-            <%= link_to "More info", flat_path(flat) %>
-            <%= link_to "Edit", edit_flat_path(flat), class: "ms-3 text-warning" %>
-            <%= link_to "Remove", flat_path(flat),
-                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-                class: "ms-3 text-danger"
-            %>
-          </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>

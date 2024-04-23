@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background: rgb(255, 255, 255);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  align-items: center;
+  background: white;
+  display: flex;
+  height: 5em;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  transition: background 0.25s;
+}
+header.top {
+  background: transparent;
+}
+
+.logo {
+  font-size: 2em;
+  padding: 0 1.5em;
+  transition: all 0.25s;
+}
+.top .logo {
+  color: rgb(0, 0, 0);
+}
+
+.search {
+  align-items: center;
+  background: white;
+  border-radius: 3em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  height: 2em;
+  left: 50%;
+  max-width: 40%;
+  overflow: hidden;
+  padding: 0 0 0 0.5em;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40em;
+  transition: all 0.25s;
+}
+.top .search {
+  max-width: 75%;
+  height: 4em;
+  top: 110%;
+  transform: translate(-50%, 0);
+  border-radius: 5em;
+  width: 50em;
+}
+
+.search-links {
+  list-style-type: none;
+  display: flex;
+  align-items: stretch;
+  width: calc(100% - 5em);
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  transition: all 0.25s;
+  font-size: 0.5em;
+  opacity: 0;
+}
+.top .search-links {
+  opacity: 1;
+  font-size: 1em;
+}
+.search-links li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2em 0 1.5em;
+  position: relative;
+}
+.search-links li:first-child {
+  flex: 1.5;
+}
+.search-links li:not(:last-child)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  background: #ccc;
+  width: 1px;
+}
+.search-links li h4 {
+  font-size: calc(0.5em + 0.5vw);
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+
+}
+.search-links li p {
+  font-size: calc(0.5em + 0.3vw);
+  color: #777;
+  margin-top: 0.5em;
+}
+
+.input {
+  border: 0;
+  flex: 1;
+  font-size: 1.5em;
+  height: 100%;
+  opacity: 1;
+  outline: 0;
+  padding: 0 0.75em;
+  transition: all 0.25s;
+  z-index: 5;
+}
+.top .input {
+  opacity: 0;
+  z-index: -1;
+}
+
+.button {
+  align-items: center;
+  background: #FF375C;
+  border: 0;
+  border-radius: 1.75em;
+  display: flex;
+  height: 1.75em;
+  justify-content: center;
+  margin: 0 0.75em;
+  width: 1.75em;
+  transition: all 0.25s;
+  z-index: 1;
+  cursor: pointer;
+}
+.button::before {
+  content: "🔍";
+  font-size: 0.5em;
+  transition: all 0.25s;
+}
+.top .button {
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 4.75em;
+}
+.top .button::before {
+  font-size: 2em;
+}
+
+footer {
+  height: 100px;
+}

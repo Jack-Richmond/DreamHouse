@@ -1,17 +1,22 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-Flat.create!(
-  name: 'Light & Spacious Garden Flat London',
-  address: '10 Clifton Gardens London W9 1DT',
-  description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory',
-  price_per_night: 75,
-  number_of_guests: 3,
-  picture_url: 'https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200'
-)
+# Require necessary libraries
+require 'httparty'
+require 'faker'
+
+
+# Define the number of random flats to generate
+number_of_flats = 20
+
+# Iterate to generate 20 random flats
+number_of_flats.times do
+  flat_data = {
+    name: Faker::Lorem.sentence(word_count: 3),
+    address: Faker::Address.full_address,
+    description: Faker::Lorem.paragraph(sentence_count: 4),
+    price_per_night: rand(50..300),
+    number_of_guests: rand(1..10)
+  }
+
+  flat = Flat.new(flat_data)
+  flat.fetch_random_image
+  flat.save!
+end

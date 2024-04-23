@@ -1,15 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <%= link_to "Simple Airbnb", root_path, class: "navbar-brand" %>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <div class="ms-auto flex">
-        <form class="flex my-2 my-lg-0">
-          <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search" value="<%= params[:query] %>">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <%= link_to "Add Flat", new_flat_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
-      </div>
-    </div>
-  </div>
+<nav>
+<header>
+  <h1 class="logo">HouseLogo</h1>
+  <label class="search">
+    <ul class="search-links">
+      <li>
+        <a href="#double">
+          <h4>Where</h4>
+          <p>Search Destinations</p>
+        </a>
+      </li>
+      <li>
+        <a href="#fire">
+          <h4>Check In</h4>
+          <p>Add dates</p>
+        </a>
+      </li>
+      <li>
+        <a href="#fillet">
+          <h4>Check Out</h4>
+          <p>Add dates</p>
+        </a>
+      </li>
+      <li>
+        <a href="#caldron">
+          <h4>Who</h4>
+          <p>Add guests</p>
+        </a>
+      </li>
+    </ul>
+    <input class="input" type="text">
+    <button class="button"></button>
+  </label>
+</header>
+<footer></footer>
 </nav>
+<script>
+const header = document.querySelector("header");
+
+function check() {
+  if (window.scrollY === 0) {
+    header.classList.add("top");
+  } else {
+    header.classList.remove("top");
+  }
+}
+
+window.addEventListener("scroll", check);
+window.addEventListener("load", check);
+
+</script>
