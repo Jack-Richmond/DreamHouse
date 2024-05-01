@@ -54,7 +54,7 @@
     <div class="flat-row">
       <% slice.each do |flat| %>
         <a href="<%= flat_path(flat) %>">
-          <div class="flat-card">
+          <div class="flat-card" data-price-per-night="<%= flat.price_per_night %>">
             <div class="card-img" style="position: relative;">
               <% if flat.picture_url.present? %>
                 <%= image_tag flat.picture_url, class: "flat-image", alt: "Flat Image" %>

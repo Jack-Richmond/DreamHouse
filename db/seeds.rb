@@ -16,6 +16,6 @@ number_of_flats.times do
   }
 
   flat = Flat.new(flat_data)
-  flat.fetch_random_image
+  flat.fetch_random_images
   flat.save!
 end

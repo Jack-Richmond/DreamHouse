@@ -1,41 +1,50 @@
 <nav>
-<header>
-<%= link_to(root_path) do %>
-    <%= image_tag("homelogo.png", alt: "CustomLogo", class: "logo") %>
-<% end %>
-  <label class="search">
-    <ul class="search-links">
-      <li>
-        <a href="#where">
-          <h4>Where</h4>
-          <p>Search Destinations</p>
-        </a>
-      </li>
-      <li>
-        <a href="#checkin">
-          <h4>Check In</h4>
-          <p>Add dates</p>
-        </a>
-      </li>
-      <li>
-        <a href="#checkout">
-          <h4>Check Out</h4>
-          <p>Add dates</p>
-        </a>
-      </li>
-      <li>
-        <a href="#guests">
-          <h4>Who</h4>
-          <p>Add guests</p>
-        </a>
-      </li>
-    </ul>
-    <input class="input" type="text">
-    <button class="button"></button>
-  </label>
-</header>
-<footer></footer>
+  <header>
+    <%= link_to(root_path) do %>
+      <%= image_tag("homelogo.png", alt: "CustomLogo", class: "logo") %>
+    <% end %>
+    <label class="search">
+      <ul class="search-links">
+        <li>
+          <a href="#where">
+            <h4>Where</h4>
+            <p>Search Destinations</p>
+          </a>
+        </li>
+        <li>
+          <a href="#checkin">
+            <h4>Check In</h4>
+            <p>Add dates</p>
+          </a>
+        </li>
+        <li>
+          <a href="#checkout">
+            <h4>Check Out</h4>
+            <p>Add dates</p>
+          </a>
+        </li>
+        <li>
+          <a href="#guests">
+            <h4>Who</h4>
+            <p>Add guests</p>
+          </a>
+        </li>
+      </ul>
+      <input class="input" type="text">
+      <button class="button"></button>
+    </label>
+    <div class="avatar">
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    </div>
+  </header>
+  <footer></footer>
 </nav>
+
+
 <script>
 const header = document.querySelector("header");
 

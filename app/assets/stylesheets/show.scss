@@ -46,9 +46,11 @@
 }
 
 .show-page__title {
-  font-size: 32px;
+  font-size: 44px;
   padding: 20px 0;
+  margin-top: 8px;
 }
+
 .price-box {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -57,10 +59,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: calc(100% - 40px);
   max-width: 500px;
-  margin-left: 10px;
+  margin-left: 100px;
   transform: translateX(10px);
 }
-
 
 .price-box__inner {
   text-align: center;
@@ -105,6 +106,7 @@
 .price-box__checkin,
 .price-box__checkout {
   flex: 1;
+  margin-right: 15px;
 }
 
 .price-box__label {
@@ -115,6 +117,14 @@
   font-size: 16px;
 }
 
+.price-box__input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
 .price-details {
   margin-top: 40px;
 }
@@ -122,7 +132,7 @@
 .price-details__item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .price-details__total {
@@ -139,4 +149,14 @@
 
 body {
   margin-bottom: 50px;
+}
+
+#map-container {
+  width: 120%;
+  margin: auto;
+}
+
+
+#map {
+  height: 450px;
 }
