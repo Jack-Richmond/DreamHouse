@@ -1,28 +1,30 @@
 <nav>
 <header>
-  <h1 class="logo">HouseLogo</h1>
+<%= link_to(root_path) do %>
+    <%= image_tag("homelogo.png", alt: "CustomLogo", class: "logo") %>
+<% end %>
   <label class="search">
     <ul class="search-links">
       <li>
-        <a href="#double">
+        <a href="#where">
           <h4>Where</h4>
           <p>Search Destinations</p>
         </a>
       </li>
       <li>
-        <a href="#fire">
+        <a href="#checkin">
           <h4>Check In</h4>
           <p>Add dates</p>
         </a>
       </li>
       <li>
-        <a href="#fillet">
+        <a href="#checkout">
           <h4>Check Out</h4>
           <p>Add dates</p>
         </a>
       </li>
       <li>
-        <a href="#caldron">
+        <a href="#guests">
           <h4>Who</h4>
           <p>Add guests</p>
         </a>

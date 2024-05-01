@@ -25,6 +25,7 @@ header {
   width: 100%;
   transition: background 0.25s;
 }
+
 header.top {
   background: transparent;
 }
@@ -34,6 +35,7 @@ header.top {
   padding: 0 1.5em;
   transition: all 0.25s;
 }
+
 .top .logo {
   color: rgb(0, 0, 0);
 }
@@ -55,7 +57,9 @@ header.top {
   transform: translate(-50%, -50%);
   width: 40em;
   transition: all 0.25s;
+  margin-top: -20px;
 }
+
 .top .search {
   max-width: 75%;
   height: 4em;
@@ -77,10 +81,12 @@ header.top {
   font-size: 0.5em;
   opacity: 0;
 }
+
 .top .search-links {
   opacity: 1;
   font-size: 1em;
 }
+
 .search-links li {
   flex: 1;
   display: flex;
@@ -89,9 +95,11 @@ header.top {
   padding: 0 2em 0 1.5em;
   position: relative;
 }
+
 .search-links li:first-child {
   flex: 1.5;
 }
+
 .search-links li:not(:last-child)::after {
   content: "";
   display: block;
@@ -102,10 +110,11 @@ header.top {
   background: #ccc;
   width: 1px;
 }
+
 .search-links li h4 {
   font-size: calc(0.5em + 0.5vw);
   margin-bottom: 0.5em;
-  margin-top: 1.5em;
+  margin-top: 2em;
 
 }
 .search-links li p {
@@ -163,4 +172,9 @@ header.top {
 
 footer {
   height: 100px;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
 }

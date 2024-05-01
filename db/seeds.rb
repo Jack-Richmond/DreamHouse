@@ -2,7 +2,6 @@
 require 'httparty'
 require 'faker'
 
-
 # Define the number of random flats to generate
 number_of_flats = 20
 

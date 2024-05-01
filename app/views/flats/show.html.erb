@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flat Show</title>
+  <%= stylesheet_link_tag 'show', media: 'all' %>
+</head>
+<body class="show-page">
+  <div class="container">
+  <h1 class="show-page__title"><%= @flat.name %></h1>
+
+    <div class="row">
+    <div class="col-md-6 show-page__large-picture">
+  <% if @flat.large_picture_url.present? %>
+    <img src="<%= asset_path(@flat.large_picture_url) %>" class="img-fluid" alt="Large Picture">
+  <% else %>
+    <p class="show-page__no-picture">No large picture available</p>
+  <% end %>
+</div>
+
+<div class="col-md-6 show-page__small-pictures">
+  <div class="row">
+    <% if @flat.small_picture_urls.present? %>
+      <% @flat.small_picture_urls.each do |url| %>
+        <div class="col-md-6 mb-3 show-page__small-picture">
+          <img src="<%= asset_path(url) %>" class="img-fluid" alt="Small Picture">
+        </div>
+      <% end %>
+    <% else %>
+      <p class="show-page__no-picture">No small pictures available</p>
+    <% end %>
+  </div>
+</div>
+
+
+ <div class="row mt-4">
+  <div class="col-md-6">
+    <p class="show-page__address"><strong>Address:</strong> <%= @flat.address %></p>
+    <p class="show-page__description"><strong>Description:</strong> <%= @flat.description %></p>
+  </div>
+
+
+<div class="col-md-6 d-flex justify-content-center align-items-center">
+  <div class="price-box">
+    <div class="price-box__inner">
+      <div class="price-box__checkin-checkout">
+        <div class="price-box__checkin">
+          <div class="price-box__label">Check-in</div>
+          <div class="price-box__value">19/05/2024</div>
+        </div>
+        <div class="price-box__checkout">
+          <div class="price-box__label">Checkout</div>
+          <div class="price-box__value">24/05/2024</div>
+        </div>
+      </div>
+      <hr>
+      <button class="price-box__button">Reserve</button>
+      <div class="price-details">
+        <div class="price-details__item">
+          <div class="price-details__title">£690 x 5 nights</div>
+          <div class="price-details__value">£3,450</div>
+        </div>
+        <div class="price-details__item">
+          <div class="price-details__title">Cleaning fee</div>
+          <div class="price-details__value">£99</div>
+        </div>
+        <div class="price-details__total">
+          <div class="price-details__title2">Total</div>
+          <div class="price-details__value2">£3,549</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

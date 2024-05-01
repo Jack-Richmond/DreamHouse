@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <div class="header">
+  <div class="icons">
     <div class="icon-row">
       <div class="icon">
         <i class="fas fa-home"></i>
@@ -49,39 +49,64 @@
     </div>
   </div>
 
-
-
-  <div class="flat-container">
-    <% @flats.each_slice(5) do |slice| %>
-      <div class="flat-row">
-        <% slice.each do |flat| %>
+<div class="flat-container">
+  <% @flats.each_slice(5) do |slice| %>
+    <div class="flat-row">
+      <% slice.each do |flat| %>
+        <a href="<%= flat_path(flat) %>">
           <div class="flat-card">
-            <div class="card-img">
+            <div class="card-img" style="position: relative;">
               <% if flat.picture_url.present? %>
                 <%= image_tag flat.picture_url, class: "flat-image", alt: "Flat Image" %>
+                <div class="heart-icon" style="position: absolute; top: 10px; right: 10px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="#000000" stroke="#ffffff" stroke-width="1" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
               <% else %>
                 <div class="placeholder-image"></div>
               <% end %>
             </div>
             <div class="card-info">
               <h5 class="flat-name"><%= flat.name %></h5>
-              <p class="flat-location"><%= flat.location %></p>
+              <p class="flat-address"><%= flat.address %></p>
               <p class="flat-price"><strong>Price:</strong> £<%= flat.price_per_night %></p>
               <div class="flat-actions">
-                <%= link_to "More info", flat_path(flat), class: "btn btn-primary btn-sm" %>
-                <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-warning btn-sm" %>
-                <%= link_to "Remove", flat_path(flat),
+                <%= link_to edit_flat_path(flat), class: "btn btn-warning btn-sm", title: "Edit" do %>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+                <%= link_to flat_path(flat),
                     method: :delete,
                     data: { confirm: "Are you sure?" },
                     class: "btn btn-danger btn-sm",
                     "data-turbo-method": :delete,
-                    "data-turbo-confirm": "Are you sure?"
-                %>
+                    "data-turbo-confirm": "Are you sure?",
+                    title: "Remove" do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
               </div>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('.heart-icon').click(function(event) {
+      event.preventDefault();
+      $(this).toggleClass('active');
+    });
+
+    $('.flat-card').click(function(event) {
+      if (!$(event.target).closest('.heart-icon').length) {
+        window.location.href = $(this).find('a').attr('href');
+      }
+    });
+  });
+</script>

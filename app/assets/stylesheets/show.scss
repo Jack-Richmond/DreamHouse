@@ -1,0 +1,142 @@
+.show-page {
+  &__title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__large-picture {
+    margin-bottom: 20px;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__small-pictures {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .show-page__small-picture {
+      width: 50%;
+      height: 250px;
+      margin-bottom: 5px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__no-picture {
+    color: red;
+    font-weight: bold;
+  }
+
+  &__address {
+    font-weight: bold;
+  }
+
+  &__description {
+    margin-top: 10px;
+  }
+}
+
+.show-page__title {
+  font-size: 32px;
+  padding: 20px 0;
+}
+.price-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: calc(100% - 40px);
+  max-width: 500px;
+  margin-left: 10px;
+  transform: translateX(10px);
+}
+
+
+.price-box__inner {
+  text-align: center;
+}
+
+.price-box__title {
+  font-size: 24px;
+}
+
+.price-box__amount {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.price-box__info {
+  color: #777;
+}
+
+.price-box__button {
+  background-color: #41bba7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 16px;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+.price-box__button:hover {
+  background-color: #0056b3;
+}
+
+.price-box__checkin-checkout {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.price-box__checkin,
+.price-box__checkout {
+  flex: 1;
+}
+
+.price-box__label {
+  font-weight: bold;
+}
+
+.price-box__value {
+  font-size: 16px;
+}
+
+.price-details {
+  margin-top: 40px;
+}
+
+.price-details__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.price-details__total {
+  font-weight: bold;
+}
+
+.price-details__value2 {
+  margin-top: 10px;
+}
+
+.price-details__title2{
+  margin-top: 30px;
+}
+
+body {
+  margin-bottom: 50px;
+}
